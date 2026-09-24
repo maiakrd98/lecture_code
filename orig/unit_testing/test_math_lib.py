@@ -3,7 +3,7 @@ import random
 import os
 import sys
 
-sys.path.append("orig/unit_testing")
+sys.path.append("orig/unit_testing")  # noqa
 
 import math_lib
 import math
@@ -22,6 +22,7 @@ class TestMathLib(unittest.TestCase):
     def test_div_by_underflowed_float_raises(self):
         self.assertRaises(ZeroDivisionError, math_lib.div, 10, 1e-400)
 
+
 #    def test_div_by_zero_returns_none(self):
 #        self.assertIsNone(math_lib.div(10, 0))
 #
@@ -29,8 +30,8 @@ class TestMathLib(unittest.TestCase):
 #        self.assertIsNone(math_lib.div(10, 1e-400))
 
 #    def test_add_floats_exact_equal_fails(self):
-#        # intentionally fails, run this one live to show why == is risky with floats
 #        self.assertEqual(math_lib.add(0.1, 0.2), 0.3)
+
 
 '''
     def test_div_by_zero_returns_none(self):
@@ -43,7 +44,7 @@ class TestMathLib(unittest.TestCase):
         self.assertAlmostEqual(math_lib.add(0.1, 0.2), 0.3)
 
     def test_add_nan_exact_equal_fails(self):
-        self.assertEqual(math_lib.add(float('nan'), 1), float('nan'))  # fails, nan != nan
+        self.assertEqual(math_lib.add(float('nan'), 1), float('nan'))
         self.assertTrue(math.isnan(math_lib.add(float('nan'), 1)))
 
     def test_rand_norm_returns_float(self):
