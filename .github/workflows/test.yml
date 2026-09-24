@@ -8,10 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environment.yml
+          init-shell: bash
       - run: python -m unittest orig/unit_testing/test_math_lib.py
+        shell: bash -l {0}
 
   run_pycodestyle:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environment.yml
+          init-shell: bash
       - run: pycodestyle orig/unit_testing/test_math_lib.py
+        shell: bash -l {0}
